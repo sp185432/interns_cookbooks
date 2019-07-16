@@ -1,0 +1,10 @@
+name 'build_infrastructure'
+maintainer 'Interns 2019'
+maintainer_email 'interns2019@ncr.com'
+license 'All Rights Reserved'
+description 'Installs/Configures build_infrastructure'
+long_description 'Installs/Configures build_infrastructure'
+version '0.1.0'
+chef_version '>= 13.0'
+
+depends 'chocolatey'

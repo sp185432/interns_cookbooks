@@ -1,0 +1,31 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+  # You may wish to disable always updating cookbooks in CI or other testing environments.
+  # For example:
+  #   always_update_cookbooks: <%= !ENV['CI'] %>
+  product_name: chef
+  product_version: 14
+  #install_strategy: always
+
+  always_update_cookbooks: true
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: windows
+    driver:
+      box: mwrock/Windows2016
+
+suites:
+  - name: default
+    provisioner:
+      policyfile_path: Policyfile.rb
+    verifier:
+      inspec_tests:
+        - test/integration/default
+    attributes:
